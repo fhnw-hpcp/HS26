@@ -211,3 +211,5 @@ __marimo__/
 *.ncu-rep
 *.nsys-rep
 *.sqlite
+*.out
+
