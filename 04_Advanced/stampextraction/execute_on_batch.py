@@ -125,7 +125,7 @@ if __name__ == "__main__":
             os.remove(f"profiling/profiling_{file_type}_{sorting_type}_{size}.json")
 
     extract_stamps(
-        "/shared-scratch/hpcp/data",
+        "/data/scratch/shared/hpcp",
         sorting_type,
         batch_number=rank,
         file_type=file_type,
