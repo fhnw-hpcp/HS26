@@ -1,0 +1,48 @@
+#!/bin/bash
+# Submission helper: this script submits two separate batch jobs.
+# Run it directly from the login node: ./05_memory_requests.batch
+
+set -euo pipefail
+
+per_cpu_job=$(sbatch --parsable <<'JOB'
+#!/bin/bash
+#SBATCH --job-name=mem-per-cpu
+#SBATCH --nodes=1
+#SBATCH --ntasks=2
+#SBATCH --cpus-per-task=2
+#SBATCH --mem-per-cpu=256M
+#SBATCH --time=00:03:00
+#SBATCH --partition=hourly
+#SBATCH --output=05-mem-per-cpu-%j.out
+set -euo pipefail
+module purge
+module load gcc/14.3.0 mpich/5.0.1 hwloc/2.12.0
+export OMP_NUM_THREADS="$SLURM_CPUS_PER_TASK"
+export OMP_PLACES=cores
+export OMP_PROC_BIND=close
+srun --cpu-bind=cores ./mpi_omp_affinity 64
+JOB
+)
+
+per_node_job=$(sbatch --parsable <<'JOB'
+#!/bin/bash
+#SBATCH --job-name=mem-per-node
+#SBATCH --nodes=1
+#SBATCH --ntasks=2
+#SBATCH --cpus-per-task=2
+#SBATCH --mem=1024M
+#SBATCH --time=00:03:00
+#SBATCH --partition=hourly
+#SBATCH --output=05-mem-per-node-%j.out
+set -euo pipefail
+module purge
+module load gcc/14.3.0 mpich/5.0.1 hwloc/2.12.0
+export OMP_NUM_THREADS="$SLURM_CPUS_PER_TASK"
+export OMP_PLACES=cores
+export OMP_PROC_BIND=close
+srun --cpu-bind=cores ./mpi_omp_affinity 64
+JOB
+)
+
+printf 'mem-per-cpu job: %s\n' "$per_cpu_job"
+printf 'mem-per-node job: %s\n' "$per_node_job"

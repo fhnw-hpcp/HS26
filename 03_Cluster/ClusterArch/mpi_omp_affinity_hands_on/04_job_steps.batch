@@ -1,0 +1,26 @@
+#!/bin/bash
+#SBATCH --job-name=job-steps
+#SBATCH --nodes=1
+#SBATCH --ntasks=4
+#SBATCH --cpus-per-task=2
+#SBATCH --mem-per-cpu=256M
+#SBATCH --time=00:05:00
+#SBATCH --partition=hourly
+#SBATCH --output=04-job-steps-%j.out
+
+set -euo pipefail
+module purge
+module load gcc/14.3.0 mpich/5.0.1 hwloc/2.12.0
+
+export OMP_NUM_THREADS="$SLURM_CPUS_PER_TASK"
+export OMP_PLACES=cores
+export OMP_PROC_BIND=close
+
+printf '\n===== step 1: one of four available tasks =====\n'
+srun --ntasks=1 --cpus-per-task=2 --cpu-bind=cores ./mpi_omp_affinity 32
+
+printf '\n===== step 2: two of four available tasks =====\n'
+srun --ntasks=2 --cpus-per-task=2 --cpu-bind=cores ./mpi_omp_affinity 32
+
+printf '\n===== step 3: complete allocation =====\n'
+srun --ntasks=4 --cpus-per-task=2 --cpu-bind=cores ./mpi_omp_affinity 32
