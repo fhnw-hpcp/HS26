@@ -46,7 +46,7 @@ JOB
 
 per_cpu_job_oom=$(sbatch --parsable <<'JOB'
 #!/bin/bash
-#SBATCH --job-name=mem-per-node
+#SBATCH --job-name=mem-oom
 #SBATCH --nodes=1
 #SBATCH --ntasks=2
 #SBATCH --cpus-per-task=2
@@ -66,4 +66,4 @@ JOB
 
 printf 'mem-per-cpu job: %s\n' "$per_cpu_job"
 printf 'mem-per-node job: %s\n' "$per_node_job"
-printf 'mem-per-cpu job triggering OOM: %s\n' "$per_cpu_job_oom"
+printf 'mem-per-cpu job allocating more memory: %s\n' "$per_cpu_job_oom"
