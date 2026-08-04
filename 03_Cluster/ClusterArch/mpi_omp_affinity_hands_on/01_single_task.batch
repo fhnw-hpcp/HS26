@@ -16,4 +16,9 @@ export OMP_NUM_THREADS="$SLURM_CPUS_PER_TASK"
 export OMP_PLACES=cores
 export OMP_PROC_BIND=close
 
+printf 'SLURM_JOB_NUM_NODES=%s\n' "$SLURM_JOB_NUM_NODES"
+printf 'SLURM_NTASKS=%s\n' "$SLURM_NTASKS"
+printf 'SLURM_CPUS_PER_TASK=%s\n' "$SLURM_CPUS_PER_TASK"
+printf 'SLURM_JOB_CPUS_PER_NODE=%s\n' "$SLURM_JOB_CPUS_PER_NODE"
+
 srun --cpu-bind=cores ./mpi_omp_affinity 32
