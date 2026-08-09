@@ -6,7 +6,7 @@ This summer school targets advanced students and researchers seeking a hands-on 
 - **Day 1 – From vanilla Python to HPC Python:**  
     Explore high-performance Python computing using numpy, numba, jax, and Python C/C++ bindings. Learn about JIT compilation, automatic differentiation, efficient memory access, and performance analysis fundamentals.
 
-    | 10.08.2026 | @FHNW Building 6 - 6.0D13 |
+    | 10.08.2026 | @FHNW Building 5 - 5.3D02 |
     | -------- | ------- |
     |  09:15 |  Entry test (only for FHNW students) | 
     |  09:50 |  Welcome to HPCP (SM) |
@@ -20,7 +20,7 @@ This summer school targets advanced students and researchers seeking a hands-on 
 - **Day 2 – Using GPUs to accelerate your code:**  
     Learn the basics of GPU programming with numba.cuda, develop and optimize custom GPU kernels, and get an overview of the CUDA ecosystem and GPU profiling.
 
-    | 11.08.2026 | @FHNW Building 6 - 6.0D13 |
+    | 11.08.2026 | @FHNW Building 5 - 5.3D02 |
     | -------- | ------- |
     |  09:15 |  Numba CUDA Basics (SM) | 
     |  11:15 |  Matrix Multiply in the Roofline Model (SM) | 
