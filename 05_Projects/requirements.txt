@@ -1,0 +1,17 @@
+# Baseline requirements. Every baseline runs on NumPy alone except project 03, which needs netCDF4.
+numpy>=1.24
+netCDF4>=1.6         # project 03 only
+
+# Useful for the write-up, not needed to run the baselines
+matplotlib>=3.7
+
+# --- Optimization tooling. Install what your chosen strategies need. ---
+# numba>=0.59
+# cupy-cuda12x
+# mpi4py>=3.1
+# dask[distributed]>=2024.1
+# xarray>=2024.1      # project 03
+# zarr>=2.17          # project 03
+# MDAnalysis>=2.7     # project 05, for the real-trajectory comparison
+# lightkurve>=2.4     # project 01, for real TESS data
+# xclim>=0.48         # project 03, for the production-library comparison

@@ -1,0 +1,15 @@
+# Generated datasets and results — regenerate with each project's
+# baseline/generate_data.py. Never commit these; the large presets run to
+# tens of gigabytes.
+data/
+results/
+*.nc
+*.npz
+*.npy
+!**/reference/*.npz
+
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+env/
