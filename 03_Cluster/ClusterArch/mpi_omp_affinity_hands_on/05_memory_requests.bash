@@ -13,7 +13,7 @@ per_cpu_job=$(sbatch --parsable <<'JOB'
 #SBATCH --mem-per-cpu=256M
 #SBATCH --time=00:03:00
 #SBATCH --partition=hourly
-#SBATCH --output=05-mem-per-cpu-%j.out
+#SBATCH --output=05a-mem-per-cpu-%j.out
 set -euo pipefail
 module purge
 module load gcc/14.3.0 mpich/5.0.1 hwloc/2.12.0
@@ -33,7 +33,7 @@ per_node_job=$(sbatch --parsable <<'JOB'
 #SBATCH --mem=1024M
 #SBATCH --time=00:03:00
 #SBATCH --partition=hourly
-#SBATCH --output=05-mem-per-node-%j.out
+#SBATCH --output=05b-mem-per-node-%j.out
 set -euo pipefail
 module purge
 module load gcc/14.3.0 mpich/5.0.1 hwloc/2.12.0
@@ -53,7 +53,7 @@ per_cpu_job_oom=$(sbatch --parsable <<'JOB'
 #SBATCH --mem-per-cpu=128M
 #SBATCH --time=00:03:00
 #SBATCH --partition=hourly
-#SBATCH --output=05-mem-per-node-%j.out
+#SBATCH --output=05c-mem-per-node-%j.out
 set -euo pipefail
 module purge
 module load gcc/14.3.0 mpich/5.0.1 hwloc/2.12.0
