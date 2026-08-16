@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=nodes-distribution
+#SBATCH --job-name=03-nodes-distribution
 #SBATCH --nodes=2
 #SBATCH --ntasks=4
 #SBATCH --ntasks-per-node=2

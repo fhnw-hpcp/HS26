@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=resource-mismatch
+#SBATCH --job-name=06-resource-mismatch
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4

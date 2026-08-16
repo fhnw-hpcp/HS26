@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=single-task
+#SBATCH --job-name=01-single-task
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1

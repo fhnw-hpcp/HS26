@@ -6,7 +6,7 @@ set -euo pipefail
 
 per_cpu_job=$(sbatch --parsable <<'JOB'
 #!/bin/bash
-#SBATCH --job-name=mem-per-cpu
+#SBATCH --job-name=05a-mem-per-cpu
 #SBATCH --nodes=1
 #SBATCH --ntasks=2
 #SBATCH --cpus-per-task=2
@@ -26,7 +26,7 @@ JOB
 
 per_node_job=$(sbatch --parsable <<'JOB'
 #!/bin/bash
-#SBATCH --job-name=mem-per-node
+#SBATCH --job-name=05b-mem-per-node
 #SBATCH --nodes=1
 #SBATCH --ntasks=2
 #SBATCH --cpus-per-task=2
@@ -46,7 +46,7 @@ JOB
 
 per_cpu_job_oom=$(sbatch --parsable <<'JOB'
 #!/bin/bash
-#SBATCH --job-name=mem-oom
+#SBATCH --job-name=05c-mem-oom
 #SBATCH --nodes=1
 #SBATCH --ntasks=2
 #SBATCH --cpus-per-task=2

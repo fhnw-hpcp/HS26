@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=memory-binding
+#SBATCH --job-name=07-memory-binding
 #SBATCH --nodes=1
 #SBATCH --ntasks=2
 #SBATCH --cpus-per-task=2

@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=job-steps
+#SBATCH --job-name=04-job-steps
 #SBATCH --nodes=1
 #SBATCH --ntasks=4
 #SBATCH --cpus-per-task=2
