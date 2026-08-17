@@ -1,0 +1,15 @@
+#!/bin/bash
+#SBATCH --job-name=08-job-array
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --time=00:02:00
+#SBATCH --array=1-10%2
+#SBATCH --output=08-job-array-%A_%a.out
+
+echo "Array job ID:  $SLURM_ARRAY_JOB_ID"
+echo "Array task ID: $SLURM_ARRAY_TASK_ID"
+echo "Host:          $(hostname)"
+echo "Would process: dataset_${SLURM_ARRAY_TASK_ID}.dat"
+
+sleep 15 
